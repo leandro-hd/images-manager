@@ -2,8 +2,10 @@ const routes = require("express").Router();
 
 const authMiddleware = require("./app/middleware/auth");
 
+const RegisterController = require("./app/controllers/RegisterController");
 const SessionController = require("./app/controllers/SessionController");
 
+routes.post("/register", RegisterController.create);
 routes.post("/sessions", SessionController.store);
 
 routes.use(authMiddleware);
